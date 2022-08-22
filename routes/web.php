@@ -12,29 +12,30 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\Admin\Auth\AuthenticationController;
 
-Route::get('/', function () {
-    return view('admin_panel.index');
-});
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {
     /**
      * Home Routes
      */
-    Route::get('/', 'HomeController@index')->name('home.index');
+    // Route::get('/', 'HomeController@index')->name('home.index');
+    Route::get('/', function () {
+        return view('admin_panel.index');
+    });
 
     Route::group(['middleware' => ['guest']], function() {
         /**
          * Register Routes
          */
-        Route::get('/register', 'RegisterController@show')->name('register.show');
-        Route::post('/register', 'RegisterController@register')->name('register.perform');
+        Route::get('/register', [AuthenticationController::class,'showRegister'])->name('register.show');
+        Route::post('/register', [AuthenticationController::class,'register'])->name('register.perform');
 
         /**
          * Login Routes
          */
-        Route::get('/login', 'LoginController@show')->name('login.show');
-        Route::post('/login', 'LoginController@login')->name('login.perform');
+        Route::get('/login', [AuthenticationController::class,'showLogin'])->name('login.show');
+        Route::post('/login', [AuthenticationController::class,'login'])->name('login.perform');
 
     });
 
@@ -58,19 +59,19 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         });
 
         /**
-         * User Routes
+         * Packages Routes
          */
-        Route::group(['prefix' => 'packages'], function() {
-            Route::get('/', 'PackagesController@index')->name('packages.index');
-            Route::get('/create', 'PackagesController@create')->name('packages.create');
-            Route::post('/create', 'PackagesController@store')->name('packages.store');
-            Route::get('/{package}/show', 'PackagesController@show')->name('packages.show');
-            Route::get('/{package}/edit', 'PackagesController@edit')->name('package.edit');
-            Route::patch('/{package}/update', 'PackagesController@update')->name('packages.update');
-            Route::delete('/{package}/delete', 'PackagesController@destroy')->name('package.destroy');
-        });
+        // Route::group(['prefix' => 'packages'], function() {
+        //     Route::get('/', 'PackagesController@index')->name('packages.index');
+        //     Route::get('/create', 'PackagesController@create')->name('packages.create');
+        //     Route::post('/create', 'PackagesController@store')->name('packages.store');
+        //     Route::get('/{package}/show', 'PackagesController@show')->name('packages.show');
+        //     Route::get('/{package}/edit', 'PackagesController@edit')->name('package.edit');
+        //     Route::patch('/{package}/update', 'PackagesController@update')->name('packages.update');
+        //     Route::delete('/{package}/delete', 'PackagesController@destroy')->name('package.destroy');
+        // });
 
-        Route::resource('roles', RolesController::class);
-        Route::resource('permissions', PermissionsController::class);
+        Route::resource('roles', \Admin\Role\RolesController::class);
+        Route::resource('permissions', \Admin\Role\PermissionsController::class);
     });
 });
