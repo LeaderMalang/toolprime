@@ -22,7 +22,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     // Route::get('/', 'HomeController@index')->name('home.index');
     Route::get('/', function () {
         return view('admin_panel.index');
-    });
+    })->name('home-page');
 
     Route::group(['middleware' => ['guest']], function() {
         /**
