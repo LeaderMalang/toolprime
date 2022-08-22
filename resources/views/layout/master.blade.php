@@ -1,22 +1,22 @@
-@extends('frontend.includes.head')
+@include('frontend.includes.head')
 
 
 <!-- PAGE -->
 <div class="page">
     <div class="page-main">
-        @extends('frontend.includes.header')
+        @include('frontend.includes.header')
 
-        @extends('frontend.includes.leftsidebar')
+        @include('frontend.includes.leftsidebar')
 
         @yield('content')
     </div>
 
-    @extends('frontend.includes.rightsidebar')
+    @include('frontend.includes.rightsidebar')
 
-    @extends('frontend.includes.countryselector')
+    @include('frontend.includes.countryselector')
 
-    @extends('frontend.includes.footer')
+    @include('frontend.includes.footer')
 
 </div>
 
-@extends('frontend.includes.foot')
+@include('frontend.includes.foot')
