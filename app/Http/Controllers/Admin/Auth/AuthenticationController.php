@@ -51,13 +51,15 @@ class AuthenticationController extends Controller
 
     $credentials = request(['email', 'password']);
     if (!Auth::attempt($credentials))
-        return redirect()->back()->withErrors(['msg' => 'Username or Password Did not Matched']);
+        return redirect()->back()->withErrors(['msg' => 'Email or Password Did not Matched']);
 
-
-    return redirect()->route('home-page');
+    else if(Auth::user()->hasRole('admin'))
+        return redirect()->route('admin-home-page');
+    else
+        return redirect()->route('user-home-page');
    }
    public function logout(){
     Auth::logout();
-    return redirect()->route('ecommerce-login');
+    return redirect()->route('login.show');
 }
 }

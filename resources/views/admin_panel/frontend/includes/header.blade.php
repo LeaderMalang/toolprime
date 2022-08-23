@@ -339,7 +339,9 @@
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                                     <div class="drop-heading">
                                         <div class="text-center">
-                                            <h5 class="text-dark mb-0 fs-14 fw-semibold">Percy Kewshun</h5>
+                                            <h5 class="text-dark mb-0 fs-14 fw-semibold">@auth
+                                                {{auth()->user()->name}}&nbsp;
+                                                @endauth</h5>
                                             <small class="text-muted">Senior Admin</small>
                                         </div>
                                     </div>
@@ -354,9 +356,13 @@
                                     <a class="dropdown-item" href="lockscreen.html">
                                         <i class="dropdown-icon fe fe-lock"></i> Lockscreen
                                     </a> --}}
-                                    <a class="dropdown-item" href="login.html">
+
+
+                                    @auth
+                                    <a class="dropdown-item" href="{{route('logout')}}">
                                         <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
                                     </a>
+                                    @endauth
                                 </div>
                             </div>
                         </div>

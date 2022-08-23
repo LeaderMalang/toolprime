@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Auth\AuthenticationController;
 use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\Permission\PermissionController;
-use App\Http\Controllers\Admin\User\UsersController;
+use App\Http\Controllers\Admin\DashboardController;
 
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
@@ -24,43 +24,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
      * Home Routes
      */
     // Route::get('/', 'HomeController@index')->name('home.index');
-    Route::get('/', function () {
-        return view('admin_panel.index');
-    })->name('home-page');
+
     Route::get('/user/dashboard', function () {
         return view('user_panel.index');
     })->name('user-home-page');
-    Route::get('/profile', function () {
-        return view('admin_panel.profile.index');
-    })->name('profile');
 
-
-    Route::group(['prefix' => 'role'], function() {
-        Route::get('/', [RoleController::class,'index'])->name('role.index');
-        Route::get('/edit', [RoleController::class,'edit'])->name('role.edit');
-        Route::get('/list', [RoleController::class,'list'])->name('role.list');
-
-    });
-    Route::group(['prefix' => 'permission'], function() {
-        Route::get('/', [PermissionController::class,'index'])->name('permission.index');
-        Route::get('/edit', [PermissionController::class,'edit'])->name('permission.edit');
-        Route::get('/list', [PermissionController::class,'list'])->name('permission.list');
-
-        
-        
-        
-    });
-    Route::group(['prefix' => 'users'], function() {
-        Route::get('/', [UsersController::class,'index'])->name('user.index');
-        Route::get('/edit', [UsersController::class,'edit'])->name('user.edit');
-        Route::get('/list', [UsersController::class,'list'])->name('user.list');
-    });
+    Route::get('/logout', [AuthenticationController::class,'logout'])->name('logout');
 
 
 
-
-    });
-    Route::get('/logout', [AuthenticationController::class,'home'])->name('logout');
 
     Route::group(['middleware' => ['guest']], function() {
         /**
@@ -77,15 +49,53 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     });
 
-    Route::group(['middleware' => ['auth', 'permission']], function() {
+    Route::group(['prefix' => 'admin','middleware' => ['auth', 'role:admin']], function() {
+
+        /**
+         * Dashboard Route
+         */
+        Route::get('/dashboard', [DashboardController::class,'index'])->name('admin-home-page');
+
+
+        /**
+         * Role Routes
+         */
+
+
+        Route::group(['prefix' => 'role'], function() {
+            Route::get('/', [RoleController::class,'index'])->name('role.index');
+            Route::get('/edit', [RoleController::class,'edit'])->name('role.edit');
+            Route::get('/list', [RoleController::class,'list'])->name('role.list');
+
+        });
+        /**
+         * Permission Routes
+         */
+        Route::group(['prefix' => 'permission'], function() {
+            Route::get('/', [PermissionController::class,'index'])->name('permission.index');
+            Route::get('/edit', [PermissionController::class,'edit'])->name('permission.edit');
+            Route::get('/list', [PermissionController::class,'list'])->name('permission.list');
+
+
+
+        });
         /**
          * Logout Routes
          */
-        Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
+
 
         /**
          * User Routes
          */
+        Route::group(['prefix' => 'users'], function() {
+            Route::get('/', 'UsersController@index')->name('users.index');
+            Route::get('/create', 'UsersController@create')->name('users.create');
+            Route::post('/create', 'UsersController@store')->name('users.store');
+            Route::get('/{user}/show', 'UsersController@show')->name('users.show');
+            Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
+            Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
+            Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
+        });
 
         /**
          * Packages Routes

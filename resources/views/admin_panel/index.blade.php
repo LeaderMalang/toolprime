@@ -11,11 +11,11 @@
 
                         <!-- PAGE-HEADER -->
                         <div class="page-header">
-                            <h1 class="page-title">Dashboard 01</h1>
+                            <h1 class="page-title">Dashboard</h1>
                             <div>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Dashboard 01</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                                 </ol>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                         <!-- ROW-1 END -->
 
                         <!-- ROW-2 -->
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 col-xl-9">
                                 <div class="card">
                                     <div class="card-header">
@@ -176,11 +176,11 @@
                                 </div>
                             </div>
                             <!-- COL END -->
-                        </div>
+                        </div> --}}
                         <!-- ROW-2 END -->
 
                         <!-- ROW-3 -->
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-xl-4 col-md-12">
                                 <div class="card">
                                     <div class="card-header">
@@ -503,11 +503,11 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- ROW-3 END -->
 
                         <!-- ROW-4 -->
-                        <div class="row">
+                        {{-- <div class="row">
                             <div class="col-12 col-sm-12">
                                 <div class="card">
                                     <div class="card-header">
@@ -2534,7 +2534,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                         <!-- ROW-4 END -->
                     </div>
                     <!-- CONTAINER END -->
