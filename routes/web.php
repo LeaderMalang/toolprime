@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 use App\Http\Controllers\Admin\Auth\AuthenticationController;
 
+
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {
     /**
@@ -23,6 +24,9 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::get('/', function () {
         return view('admin_panel.index');
     })->name('home-page');
+    Route::get('/user/dashboard', function () {
+        return view('user_panel.index');
+    })->name('user-home-page');
 
     Route::group(['middleware' => ['guest']], function() {
         /**
