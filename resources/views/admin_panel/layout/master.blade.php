@@ -1,22 +1,22 @@
-@include('frontend.includes.head')
+@include('admin_panel.frontend.includes.head')
 
 
 <!-- PAGE -->
 <div class="page">
     <div class="page-main">
-        @include('frontend.includes.header')
+        @include('admin_panel.frontend.includes.header')
 
-        @include('frontend.includes.leftsidebar')
+        @include('admin_panel.frontend.includes.leftsidebar')
 
         @yield('content')
     </div>
 
-    @include('frontend.includes.rightsidebar')
+    @include('admin_panel.frontend.includes.rightsidebar')
 
-    @include('frontend.includes.countryselector')
+    @include('admin_panel.frontend.includes.countryselector')
 
-    @include('frontend.includes.footer')
+    @include('admin_panel.frontend.includes.footer')
 
 </div>
 
-@include('frontend.includes.foot')
+@include('admin_panel.frontend.includes.foot')

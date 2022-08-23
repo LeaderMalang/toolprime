@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\Admin\Auth\AuthenticationController;
+use App\Http\Controllers\Admin\Role\RoleController;
+use App\Http\Controllers\Admin\Permission\PermissionController;
 
 
 Route::group(['namespace' => 'App\Http\Controllers'], function()
@@ -27,6 +29,24 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::get('/user/dashboard', function () {
         return view('user_panel.index');
     })->name('user-home-page');
+
+
+
+    Route::group(['prefix' => 'role'], function() {
+        Route::get('/', [RoleController::class,'index'])->name('role.index');
+        Route::get('/edit', [RoleController::class,'edit'])->name('role.edit');
+        Route::get('/list', [RoleController::class,'list'])->name('role.list');
+        
+    });
+    Route::group(['prefix' => 'permission'], function() {
+        Route::get('/', [PermissionController::class,'index'])->name('permission.index');
+        Route::get('/edit', [PermissionController::class,'edit'])->name('permission.edit');
+        Route::get('/list', [PermissionController::class,'list'])->name('permission.list');
+        
+        
+        
+    });
+
 
     Route::group(['middleware' => ['guest']], function() {
         /**
@@ -61,7 +81,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
             Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
             Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
         });
-
+       
         /**
          * Packages Routes
          */
@@ -75,7 +95,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         //     Route::delete('/{package}/delete', 'PackagesController@destroy')->name('package.destroy');
         // });
 
-        Route::resource('roles', \Admin\Role\RolesController::class);
-        Route::resource('permissions', \Admin\Role\PermissionsController::class);
+        // Route::resource('roles', \Admin\Role\RolesController::class);
+        // Route::resource('permissions', \Admin\Role\PermissionsController::class);
     });
 });
