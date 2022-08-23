@@ -10,10 +10,10 @@
                 <img src="../assets/images/brand/logo-3.png" class="header-brand-img light-logo1" alt="logo">
             </a>
             <!-- LOGO -->
-            <div class="main-header-center ms-3 d-none d-lg-block">
+            {{-- <div class="main-header-center ms-3 d-none d-lg-block">
                 <input type="text" class="form-control" id="typehead" placeholder="Search for results...">
                 <button class="btn px-0 pt-2"><i class="fe fe-search" aria-hidden="true"></i></button>
-            </div>
+            </div> --}}
             <div class="d-flex order-lg-2 ms-auto header-right-icons">
                 <!-- SEARCH -->
                 <button class="navbar-toggler navresponsive-toggler d-lg-none ms-auto" type="button"
@@ -51,7 +51,7 @@
                                 </a>
                             </div>
                             <!-- Theme-Layout -->
-                            <div class="dropdown  d-flex shopping-cart">
+                            {{-- <div class="dropdown  d-flex shopping-cart">
                                 <a class="nav-link icon text-center" data-bs-toggle="dropdown">
                                     <i class="fe fe-shopping-cart"></i><span
                                         class="badge bg-secondary header-badge">4</span>
@@ -166,15 +166,15 @@
                                         <span class="float-end p-2 fs-17 fw-semibold">Total: $6789</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- CART -->
-                            <div class="dropdown d-flex">
+                            {{-- <div class="dropdown d-flex">
                                 <a class="nav-link icon full-screen-link nav-link-bg">
                                     <i class="fe fe-minimize fullscreen-button"></i>
                                 </a>
-                            </div>
+                            </div> --}}
                             <!-- FULL-SCREEN -->
-                            <div class="dropdown  d-flex notifications">
+                            {{-- <div class="dropdown  d-flex notifications">
                                 <a class="nav-link icon" data-bs-toggle="dropdown"><i class="fe fe-bell"></i><span
                                         class=" pulse"></span>
                                 </a>
@@ -230,9 +230,10 @@
                                     <a href="notify-list.html" class="dropdown-item text-center p-3 text-muted">View all
                                         Notification</a>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- NOTIFICATIONS -->
-                            <div class="dropdown  d-flex message">
+
+                            {{-- <div class="dropdown  d-flex message">
                                 <a class="nav-link icon text-center" data-bs-toggle="dropdown">
                                     <i class="fe fe-message-square"></i><span class="pulse-danger"></span>
                                 </a>
@@ -320,14 +321,14 @@
                                         all
                                         Messages</a>
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- MESSAGE-BOX -->
-                            <div class="dropdown d-flex header-settings">
+                            {{-- <div class="dropdown d-flex header-settings">
                                 <a href="javascript:void(0);" class="nav-link icon" data-bs-toggle="sidebar-right"
                                     data-target=".sidebar-right">
                                     <i class="fe fe-align-right"></i>
                                 </a>
-                            </div>
+                            </div> --}}
                             <!-- SIDE-MENU -->
                             <div class="dropdown d-flex profile-1">
                                 <a href="javascript:void(0)" data-bs-toggle="dropdown"
@@ -346,13 +347,13 @@
                                     <a class="dropdown-item" href="profile.html">
                                         <i class="dropdown-icon fe fe-user"></i> Profile
                                     </a>
-                                    <a class="dropdown-item" href="email-inbox.html">
+                                    {{-- <a class="dropdown-item" href="email-inbox.html">
                                         <i class="dropdown-icon fe fe-mail"></i> Inbox
                                         <span class="badge bg-danger rounded-pill float-end">5</span>
                                     </a>
                                     <a class="dropdown-item" href="lockscreen.html">
                                         <i class="dropdown-icon fe fe-lock"></i> Lockscreen
-                                    </a>
+                                    </a> --}}
                                     <a class="dropdown-item" href="login.html">
                                         <i class="dropdown-icon fe fe-alert-circle"></i> Sign out
                                     </a>

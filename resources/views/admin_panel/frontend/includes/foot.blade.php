@@ -60,8 +60,8 @@
     <script src="../assets/plugins/sidemenu/sidemenu.js"></script>
 
 	<!-- TypeHead js -->
-	<script src="../assets/plugins/bootstrap5-typehead/autocomplete.js"></script>
-    <script src="../assets/js/typehead.js"></script>
+	{{-- <script src="../assets/plugins/bootstrap5-typehead/autocomplete.js"></script>
+    <script src="../assets/js/typehead.js"></script> --}}
 
     <!-- INTERNAL INDEX JS -->
     <script src="../assets/js/index1.js"></script>
