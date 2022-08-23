@@ -4,10 +4,10 @@
     <div class="app-sidebar">
         <div class="side-header">
             <a class="header-brand1" href="index.html">
-                <img src="../assets/images/brand/logo.png" class="header-brand-img desktop-logo" alt="logo">
-                <img src="../assets/images/brand/logo-1.png" class="header-brand-img toggle-logo" alt="logo">
-                <img src="../assets/images/brand/logo-2.png" class="header-brand-img light-logo" alt="logo">
-                <img src="../assets/images/brand/logo-3.png" class="header-brand-img light-logo1" alt="logo">
+                <img src="{{asset('assets/images/brand/logo.png')}}" class="header-brand-img desktop-logo" alt="logo">
+                <img src="{{asset('assets/images/brand/logo-1.png')}}" class="header-brand-img toggle-logo" alt="logo">
+                <img src="{{asset('assets/images/brand/logo-2.png')}}" class="header-brand-img light-logo" alt="logo">
+                <img src="{{asset('assets/images/brand/logo-3.png')}}" class="header-brand-img light-logo1" alt="logo">
             </a>
             <!-- LOGO -->
         </div>
@@ -21,8 +21,13 @@
                     <h3>Main</h3>
                 </li>
                 <li class="slide">
-                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="index.html"><i
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="{{route('admin-home-page')}}"><i
                             class="side-menu__icon fe fe-home"></i><span class="side-menu__label">Dashboard</span></a>
+                </li>
+
+                <li class="slide">
+                    <a class="side-menu__item has-link" data-bs-toggle="slide" href="{{route('admin-profile-page')}}"><i
+                            class="side-menu__icon fe fe-user"></i><span class="side-menu__label">Profile</span></a>
                 </li>
                 <li class="sub-category">
                     <h3>UI Kit</h3>

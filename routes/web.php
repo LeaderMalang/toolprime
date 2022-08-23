@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 use App\Http\Controllers\Admin\Auth\AuthenticationController;
-use App\Http\Controllers\Admin\Role\RoleController;
+// use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\Permission\PermissionController;
 use App\Http\Controllers\Admin\DashboardController;
 
@@ -56,29 +56,22 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          */
         Route::get('/dashboard', [DashboardController::class,'index'])->name('admin-home-page');
 
+        /**
+         * Profile Routes
+         */
+        Route::get('/profile', [DashboardController::class,'profile'])->name('admin-profile-page');
 
         /**
          * Role Routes
          */
+        Route::resource('roles', \Admin\Role\RoleController::class);
 
 
-        Route::group(['prefix' => 'role'], function() {
-            Route::get('/', [RoleController::class,'index'])->name('role.index');
-            Route::get('/edit', [RoleController::class,'edit'])->name('role.edit');
-            Route::get('/list', [RoleController::class,'list'])->name('role.list');
-
-        });
         /**
          * Permission Routes
          */
-        Route::group(['prefix' => 'permission'], function() {
-            Route::get('/', [PermissionController::class,'index'])->name('permission.index');
-            Route::get('/edit', [PermissionController::class,'edit'])->name('permission.edit');
-            Route::get('/list', [PermissionController::class,'list'])->name('permission.list');
+        Route::resource('permissions', \Admin\Permission\PermissionController::class);
 
-
-
-        });
         /**
          * Logout Routes
          */
@@ -87,15 +80,15 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * User Routes
          */
-        Route::group(['prefix' => 'users'], function() {
-            Route::get('/', 'UsersController@index')->name('users.index');
-            Route::get('/create', 'UsersController@create')->name('users.create');
-            Route::post('/create', 'UsersController@store')->name('users.store');
-            Route::get('/{user}/show', 'UsersController@show')->name('users.show');
-            Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
-            Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
-            Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
-        });
+        // Route::group(['prefix' => 'users'], function() {
+        //     Route::get('/', 'UsersController@index')->name('users.index');
+        //     Route::get('/create', 'UsersController@create')->name('users.create');
+        //     Route::post('/create', 'UsersController@store')->name('users.store');
+        //     Route::get('/{user}/show', 'UsersController@show')->name('users.show');
+        //     Route::get('/{user}/edit', 'UsersController@edit')->name('users.edit');
+        //     Route::patch('/{user}/update', 'UsersController@update')->name('users.update');
+        //     Route::delete('/{user}/delete', 'UsersController@destroy')->name('users.destroy');
+        // });
 
         /**
          * Packages Routes

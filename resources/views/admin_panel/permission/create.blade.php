@@ -11,11 +11,11 @@
 
                         <!-- PAGE-HEADER -->
                         <div class="page-header">
-                            <h1 class="page-title">Permission Edit</h1>
+                            <h1 class="page-title">Permission Create</h1>
                             <div>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Permission Edit</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Permission Create</li>
                                 </ol>
                             </div>
                         </div>
@@ -26,7 +26,7 @@
                             <div class="col-md-12 col-xl-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title">Permission Edit
+                                        <h4 class="card-title">Permission Create
 
 
 
@@ -35,13 +35,12 @@
                                         </h4>
                                     </div>
                                     <div class="card-body">
-                                        <form class="form-horizontal" action="{{ route('permissions.update', $permission->id) }}" method="POST">
-                                            @method('patch')
+                                        <form class="form-horizontal" action="{{route('permissions.store')}}" method="POST">
                                             @csrf
                                             <div class=" row mb-4">
                                                 <label for="inputName" class="col-md-3 form-label"> Name</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" value="{{ $permission->name }}"  class="form-control" name="name" id="inputName" placeholder="Name" autocomplete="username">
+                                                    <input type="text" class="form-control" value="{{old('name')}}" name="name" id="inputName" placeholder="Name" autocomplete="username">
                                                 </div>
                                                 @if ($errors->has('name'))
                                                     <span class="text-danger text-left">{{ $errors->first('name') }}</span>

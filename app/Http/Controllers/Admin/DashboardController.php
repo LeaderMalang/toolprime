@@ -10,4 +10,7 @@ class DashboardController extends Controller
     function index() {
         return view('admin_panel.index');
     }
+    function profile() {
+        return view('admin_panel.profile.index');
+    }
 }
