@@ -56,4 +56,8 @@ class AuthenticationController extends Controller
 
     return redirect()->route('home-page');
    }
+   public function logout(){
+    Auth::logout();
+    return redirect()->route('ecommerce-login');
+}
 }

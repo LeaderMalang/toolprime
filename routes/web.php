@@ -30,19 +30,22 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
     Route::get('/user/dashboard', function () {
         return view('user_panel.index');
     })->name('user-home-page');
-
+    Route::get('/profile', function () {
+        return view('admin_panel.profile.index');
+    })->name('profile');
 
 
     Route::group(['prefix' => 'role'], function() {
         Route::get('/', [RoleController::class,'index'])->name('role.index');
         Route::get('/edit', [RoleController::class,'edit'])->name('role.edit');
         Route::get('/list', [RoleController::class,'list'])->name('role.list');
-        
+
     });
     Route::group(['prefix' => 'permission'], function() {
         Route::get('/', [PermissionController::class,'index'])->name('permission.index');
         Route::get('/edit', [PermissionController::class,'edit'])->name('permission.edit');
         Route::get('/list', [PermissionController::class,'list'])->name('permission.list');
+
         
         
         
@@ -53,6 +56,11 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::get('/list', [UsersController::class,'list'])->name('user.list');
     });
 
+
+
+
+    });
+    Route::get('/logout', [AuthenticationController::class,'home'])->name('logout');
 
     Route::group(['middleware' => ['guest']], function() {
         /**
@@ -78,8 +86,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         /**
          * User Routes
          */
-        
-       
+
         /**
          * Packages Routes
          */
