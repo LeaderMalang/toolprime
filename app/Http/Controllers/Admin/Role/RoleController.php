@@ -50,7 +50,7 @@ class RoleController extends Controller
     public function create()
     {
         $permissions = Permission::get();
-        return view('roles.create', compact('permissions'));
+        return view('admin_panel.role.create', compact('permissions'));
     }
 
     /**
@@ -69,7 +69,7 @@ class RoleController extends Controller
         $role = Role::create(['name' => $request->get('name')]);
         $role->syncPermissions($request->get('permission'));
 
-        return redirect()->route('roles.index')
+        return redirect()->route('roles.create')
                         ->with('success','Role created successfully');
     }
 
@@ -84,7 +84,7 @@ class RoleController extends Controller
         $role = $role;
         $rolePermissions = $role->permissions;
 
-        return view('roles.show', compact('role', 'rolePermissions'));
+        return view('admin_panel.role.show', compact('role', 'rolePermissions'));
     }
 
     /**
@@ -99,7 +99,7 @@ class RoleController extends Controller
         $rolePermissions = $role->permissions->pluck('name')->toArray();
         $permissions = Permission::get();
 
-        return view('roles.edit', compact('role', 'rolePermissions', 'permissions'));
+        return view('admin_panel.role.edit', compact('role', 'rolePermissions', 'permissions'));
     }
 
     /**

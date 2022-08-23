@@ -16,7 +16,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/brand/favicon.ico')}}" />
 
     <!-- TITLE -->
-    <title>Sash – Bootstrap 5 Admin & Dashboard Template </title>
+    <title>Tool Prime | Admin </title>
 
     <!-- BOOTSTRAP CSS -->
 

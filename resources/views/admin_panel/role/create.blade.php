@@ -11,11 +11,11 @@
 
                         <!-- PAGE-HEADER -->
                         <div class="page-header">
-                            <h1 class="page-title">Role Edit</h1>
+                            <h1 class="page-title">Role Create</h1>
                             <div>
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Role Edit</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Role Create</li>
                                 </ol>
                             </div>
                         </div>
@@ -26,23 +26,21 @@
                             <div class="col-md-12 col-xl-6">
                                 <div class="card">
                                     <div class="card-header">
-                                        <h4 class="card-title">Role Edit
+                                        <h4 class="card-title">Role Create
 
 
 
 
                                            @include('admin_panel.frontend.includes.messages')
-
                                         </h4>
                                     </div>
                                     <div class="card-body">
-                                        <form class="form-horizontal" action="{{ route('roles.update', $role->id) }}" method="POST">
-                                            @method('patch')
+                                        <form class="form-horizontal" action="{{route('roles.store')}}" method="POST">
                                             @csrf
                                             <div class=" row mb-4">
                                                 <label for="inputName" class="col-md-3 form-label"> Name</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" value="{{ $role->name }}"  class="form-control" name="name" id="inputName" placeholder="Name" autocomplete="username">
+                                                    <input type="text" class="form-control" value="{{old('name')}}" name="name" id="inputName" placeholder="Name" autocomplete="username">
                                                 </div>
                                                 @if ($errors->has('name'))
                                                     <span class="text-danger text-left">{{ $errors->first('name') }}</span>
@@ -64,10 +62,7 @@
                                                                     <input type="checkbox"
                                                                     name="permission[{{ $permission->name }}]"
                                                                     value="{{ $permission->name }}"
-                                                                    class='permission'
-                                                                    {{ in_array($permission->name, $rolePermissions)
-                                                                        ? 'checked'
-                                                                        : '' }}>
+                                                                    class='permission'>
                                                                 </td>
                                                                 <td>{{ $permission->name }}</td>
                                                                 <td>{{ $permission->guard_name }}</td>
@@ -76,7 +71,26 @@
                                                     </table>
                                                 </div>
                                             </div>
-                                            
+                                            {{-- <div class=" row mb-4">
+                                                <label for="inputEmail3" class="col-md-3 form-label">Email</label>
+                                                <div class="col-md-9">
+                                                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email" autocomplete="username">
+                                                </div>
+                                            </div>
+                                            <div class=" row mb-4">
+                                                <label for="inputPassword3" class="col-md-3 form-label">Password</label>
+                                                <div class="col-md-9">
+                                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password" autocomplete="new-password">
+                                                </div>
+                                            </div> --}}
+                                            {{-- <div class="mb-0 row justify-content-end">
+                                                <div class="col-md-9">
+                                                    <label class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" name="example-checkbox2" value="option2">
+                                                            <span class="custom-control-label">Check me Out</span>
+                                                        </label>
+                                                </div>
+                                            </div> --}}
                                             <div class="mb-0 mt-4 row justify-content-end">
                                                 <div class="col-md-9">
                                                     <button class="btn btn-primary" type="submit">Save</button>

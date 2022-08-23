@@ -72,7 +72,8 @@
     <!-- CUSTOM JS -->
     <script src="{{asset('assets/js/custom.js')}}"></script>
 
-
+    <!----Custom Function To Manage-->
+    @yield('foot_script');
 </body>
 
 </html>
