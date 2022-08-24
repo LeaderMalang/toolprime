@@ -40,7 +40,6 @@ class AlterTableUsers extends Migration
     public function down()
     {
         Schema::table('users', function($table) {
-            $table->dropColumn('paid');
             $table->dropColumn('company_name');
 
             $table->dropColumn('website');

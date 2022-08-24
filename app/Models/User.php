@@ -22,6 +22,16 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'company_name',
+        'website',
+        'about_me',
+        'account_type',
+        'account_status',
+        'api_status',
+        'api_key',
+        'phone_number',
+        'delete_account',
+        'image'
     ];
 
     /**
@@ -43,8 +53,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = bcrypt($value);
-    }
+    // public function setPasswordAttribute($value)
+    // {
+    //     $this->attributes['password'] = bcrypt($value);
+    // }
 }

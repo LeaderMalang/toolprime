@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('user_panel.layout.master')
 
 @section('content')
 
