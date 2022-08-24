@@ -15,7 +15,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('assets/images/brand/favicon.ico')}}" />
 
     <!-- TITLE -->
-    <title>Sash – Bootstrap 5 Admin & Dashboard Template</title>
+    <title>Tool Prime | Login</title>
 
     <!-- BOOTSTRAP CSS -->
     <link id="style" href="{{asset('assets/plugins/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" />
@@ -51,8 +51,8 @@
 
                 <!-- CONTAINER OPEN -->
                 <div class="col col-login mx-auto mt-7">
-                    <div class="text-center">
-                        <a href="index.html"><img src="{{asset('assets/images/brand/logo-white.png')}}" class="header-brand-img" alt=""></a>
+                    <div class="text-center text-white">
+                        <h3>Tool Prime</h3>
                     </div>
                 </div>
 
