@@ -17,7 +17,9 @@ use App\Http\Controllers\Admin\Auth\AuthenticationController;
 use App\Http\Controllers\Admin\Permission\PermissionController;
 use App\Http\Controllers\Admin\DashboardController;
 
-
+Route::get('/', function () {
+    return redirect()->route('login.show');
+});
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {
     /**
