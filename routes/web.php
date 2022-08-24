@@ -51,7 +51,7 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
     });
 
-    Route::group(['prefix' => 'admin','middleware' => ['auth', 'role:admin']], function() {
+    Route::group(['prefix' => 'admin','middleware' => ['auth', 'permission','role:admin']], function() {
 
         /**
          * Dashboard Route
