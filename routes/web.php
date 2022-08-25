@@ -81,7 +81,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * Tools Routes
          */
         Route::resource('tools', \Admin\Tool\ToolController::class);
-
+        /**
+         * Pkackesg Routes
+         */
+        Route::resource('packeges', \Admin\Package\PackageController::class);
         /**
          * Logout Routes
          */

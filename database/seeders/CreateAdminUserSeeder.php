@@ -28,5 +28,22 @@ class CreateAdminUserSeeder extends Seeder
         $role->syncPermissions($permissions);
 
         $user->assignRole([$role->id]);
+
+
+        $user = User::create([
+            'name' => 'Guest User',
+            'email' => 'guest@gmail.com',
+            'password' => 'guest123'
+        ]);
+
+        $role = Role::create(['name' => 'guest']);
+
+        $permissions = Permission::pluck('id','id')->all();
+
+        $role->syncPermissions($permissions);
+
+        $user->assignRole([$role->id]);
     }
+
+
 }

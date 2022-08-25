@@ -57,4 +57,8 @@ class User extends Authenticatable
     // {
     //     $this->attributes['password'] = bcrypt($value);
     // }
+
+    public function package(){
+        return $this->hasOne(Package::class,'id','account_type');
+    }
 }
