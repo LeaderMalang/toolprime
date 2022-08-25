@@ -73,6 +73,14 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
          * Permission Routes
          */
         Route::resource('permissions', \Admin\Permission\PermissionController::class);
+         /**
+         * Category Routes
+         */
+        Route::resource('categories', \Admin\Category\CategoryController::class);
+         /**
+         * Tools Routes
+         */
+        Route::resource('tools', \Admin\Tool\ToolController::class);
 
         /**
          * Logout Routes
