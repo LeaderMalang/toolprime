@@ -50,8 +50,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/login', [AuthenticationController::class,'login'])->name('login.perform');
 
     });
-
-    Route::group(['prefix' => 'admin','middleware' => ['auth', 'permission','role:admin']], function() {
+//'permission'
+    Route::group(['prefix' => 'admin','middleware' => ['auth' ,'role:admin']], function() {
 
         /**
          * Dashboard Route
