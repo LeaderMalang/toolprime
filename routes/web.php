@@ -16,20 +16,18 @@ use App\Http\Controllers\Admin\Auth\AuthenticationController;
 // use App\Http\Controllers\Admin\Role\RoleController;
 use App\Http\Controllers\Admin\Permission\PermissionController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\User\UsersController;
+use App\Http\Controllers\User\UserController;
+// Route::get('/', function () {
+//     return view('user_panel.index');
+// })->name('user-dds');
 
-Route::get('/', function () {
-    return redirect()->route('login.show');
-});
 Route::group(['namespace' => 'App\Http\Controllers'], function()
 {
-    /**
-     * Home Routes
-     */
-    // Route::get('/', 'HomeController@index')->name('home.index');
 
-    Route::get('/user/dashboard', function () {
-        return view('user_panel.index');
-    })->name('user-home-page');
+
+
+
 
     Route::get('/logout', [AuthenticationController::class,'logout'])->name('logout');
 
@@ -37,6 +35,10 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
 
     Route::group(['middleware' => ['guest']], function() {
+        /**
+         * Langing Page Routes
+         */
+
         /**
          * Register Routes
          */
@@ -50,9 +52,25 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/login', [AuthenticationController::class,'login'])->name('login.perform');
 
     });
+    Route::group(['prefix' => 'user','middleware' => ['auth']], function() {
+        Route::get('/profile', function () {
+            return view('user_panel.index');
+        })->name('user-home-page');
+        Route::post('/changePassword',[UserController::class,'changePassword'])->name('user.changePassword');
+        Route::post('/updateProfile',[UserController::class,'updateProfile'])->name('user.updateProfile');
+
+    });
 //'permission'
     Route::group(['prefix' => 'admin','middleware' => ['auth' ,'role:admin']], function() {
 
+        /**
+         * User Management Routes
+         */
+        Route::group(['prefix' => 'users'], function() {
+            Route::get('/', [UsersController::class,'index'])->name('users.index');
+
+
+        });
         /**
          * Dashboard Route
          */
